@@ -106,6 +106,8 @@ export const VideoModal: React.FC<VideoModalProps> = ({
             src={videoSrc}
             autoPlay
             playsInline
+            preload="metadata"
+            style={{ transform: 'translateZ(0)' }}
             onTimeUpdate={handleTimeUpdate}
             onEnded={() => setIsPlaying(false)}
             onClick={togglePlay}

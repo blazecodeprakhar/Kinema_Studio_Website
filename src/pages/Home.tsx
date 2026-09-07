@@ -86,7 +86,14 @@ export const Home: React.FC = () => {
             </Link>
             
             <button
-              onClick={() => setHeroVideoModalOpen(true)}
+              onClick={() => {
+                const el = document.getElementById('reels-showcase');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                  setHeroVideoModalOpen(true);
+                }
+              }}
               className="w-full sm:w-auto px-7 py-3.5 bg-canvas/90 border border-line text-white hover:border-brand hover:bg-raised text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md cursor-pointer"
             >
               <Play className="w-4 h-4 fill-brand text-brand" /> Watch Launch Reel
@@ -186,7 +193,7 @@ export const Home: React.FC = () => {
       </ScrollReveal>
 
       {/* 5. VERTICAL REELS & GEN-AI SHOWCASE */}
-      <ScrollReveal className="max-w-7xl mx-auto px-4 md:px-8 w-full">
+      <ScrollReveal id="reels-showcase" className="max-w-7xl mx-auto px-4 md:px-8 w-full">
         <ReelsShowcase />
       </ScrollReveal>
 

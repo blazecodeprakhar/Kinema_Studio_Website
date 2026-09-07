@@ -6,6 +6,7 @@ interface ScrollRevealProps {
   delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right' | 'scale';
   duration?: number;
+  id?: string;
 }
 
 export const ScrollReveal: React.FC<ScrollRevealProps> = ({
@@ -13,7 +14,8 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   className = '',
   delay = 0,
   direction = 'up',
-  duration = 500
+  duration = 500,
+  id
 }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -63,6 +65,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
   return (
     <div
+      id={id}
       ref={ref}
       style={{
         opacity: isVisible ? 1 : 0,

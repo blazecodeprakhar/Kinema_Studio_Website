@@ -65,18 +65,14 @@ export const PanoramaViewer: React.FC = () => {
   const loadedImagesRef = useRef<{ [key: string]: HTMLImageElement }>({});
   const [, setImagesLoaded] = useState<boolean>(false);
 
-  // Preload room images cleanly
+  // Preload room images cleanly and trigger drawCanvas on load
   useEffect(() => {
-    let loadedCount = 0;
     rooms.forEach((rm) => {
       const img = new Image();
       img.src = rm.imageSrc;
       img.onload = () => {
         loadedImagesRef.current[rm.id] = img;
-        loadedCount++;
-        if (loadedCount === rooms.length) {
-          setImagesLoaded(true);
-        }
+        setImagesLoaded((prev) => !prev);
       };
     });
   }, []);

@@ -48,7 +48,7 @@ export const ReelsShowcase: React.FC = () => {
         </span>
 
         <h2 className="text-2xl md:text-4xl font-extrabold font-display text-white leading-tight">
-          Built for Instagram Reels, YouTube Shorts & TikTok Ads.
+          Built for Instagram Reels, YouTube Shorts & Viral Social Ads.
         </h2>
 
         <p className="text-xs text-text-muted leading-relaxed">

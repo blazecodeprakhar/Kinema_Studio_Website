@@ -40,6 +40,22 @@ export const ReelsShowcase: React.FC = () => {
     setIsMuted(!isMuted);
   };
 
+  const handleOpenExpandView = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+    setModalVideo(currentReel);
+  };
+
+  const handleCloseModal = () => {
+    setModalVideo(null);
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+      setIsPlaying(true);
+    }
+  };
+
   return (
     <div className="w-full bg-surface border border-line rounded-2xl p-6 md:p-8 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-xl">
       <div className="flex flex-col gap-4 max-w-lg text-left">
@@ -92,7 +108,7 @@ export const ReelsShowcase: React.FC = () => {
           </button>
 
           <button
-            onClick={() => setModalVideo(currentReel)}
+            onClick={handleOpenExpandView}
             className="px-5 py-2.5 bg-brand hover:bg-brand-hover text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors cursor-pointer"
           >
             Expand View
@@ -110,7 +126,7 @@ export const ReelsShowcase: React.FC = () => {
           ref={videoRef}
           src={currentReel.src}
           poster={currentReel.poster}
-          autoPlay
+          autoPlay={!modalVideo}
           loop
           muted={isMuted}
           playsInline
@@ -134,7 +150,7 @@ export const ReelsShowcase: React.FC = () => {
       {modalVideo && (
         <VideoModal
           isOpen={!!modalVideo}
-          onClose={() => setModalVideo(null)}
+          onClose={handleCloseModal}
           videoSrc={modalVideo.src}
           title={modalVideo.title}
           category={modalVideo.category}

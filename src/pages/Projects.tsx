@@ -53,11 +53,11 @@ export const Projects: React.FC = () => {
 
       {/* Portfolio Grid */}
       {filteredProjects.length > 0 ? (
-        <ScrollReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-container">
+        <ScrollReveal className="flex flex-wrap justify-center gap-8 perspective-container">
           {filteredProjects.map((proj: ProjectItem) => (
             <div 
               key={proj.id}
-              className="bg-surface rounded-2xl border border-line overflow-hidden flex flex-col justify-between transition-all group hover:border-brand/40 shadow-xl"
+              className="bg-surface rounded-2xl border border-line overflow-hidden flex flex-col justify-between transition-all group hover:border-brand/40 shadow-xl w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)]"
             >
               {/* Media Thumbnail Box */}
               <div className="relative aspect-[16/10] bg-canvas overflow-hidden flex items-center justify-center border-b border-line">

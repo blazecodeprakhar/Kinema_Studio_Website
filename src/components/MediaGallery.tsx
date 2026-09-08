@@ -129,7 +129,7 @@ export const MediaGallery: React.FC = () => {
 
       {/* Media Grid */}
       {visibleMedia.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="flex flex-wrap justify-center gap-5">
           {visibleMedia.map((item) => (
             <div
               key={item.id}
@@ -141,7 +141,7 @@ export const MediaGallery: React.FC = () => {
                   if (imgIdx !== -1) setSelectedImageIndex(imgIdx);
                 }
               }}
-              className="group relative bg-surface border border-line rounded-xl overflow-hidden shadow-lg flex flex-col justify-between transition-all duration-300 hover:border-brand/60 hover:-translate-y-1 cursor-pointer"
+              className="group relative bg-surface border border-line rounded-xl overflow-hidden shadow-lg flex flex-col justify-between transition-all duration-300 hover:border-brand/60 hover:-translate-y-1 cursor-pointer w-full sm:w-[calc(50%-10px)] md:w-[calc(33.333%-14px)] lg:w-[calc(25%-15px)]"
             >
               <div className="relative aspect-[16/10] bg-canvas overflow-hidden flex items-center justify-center">
                 {item.type === 'image' ? (
@@ -166,10 +166,6 @@ export const MediaGallery: React.FC = () => {
                     </div>
                   </div>
                 )}
-
-                <div className="absolute top-2.5 left-2.5 bg-canvas/90 border border-line text-brand text-[8px] font-mono uppercase font-bold px-2 py-0.5 rounded backdrop-blur-md">
-                  {item.category}
-                </div>
 
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                   <div className="p-3 bg-brand text-white rounded-full transition-transform hover:scale-110">

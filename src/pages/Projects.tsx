@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { projectsData, type ProjectItem } from '../data/projectsData';
-import { Eye, MapPin, ArrowRight, Play } from 'lucide-react';
+import { Eye, ArrowRight, Play } from 'lucide-react';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { VideoModal } from '../components/VideoModal';
 
@@ -66,10 +66,6 @@ export const Projects: React.FC = () => {
                   alt={proj.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-
-                <div className="absolute top-4 left-4 bg-surface/90 backdrop-blur-md border border-line text-white text-[9px] uppercase tracking-widest px-2.5 py-0.5 rounded flex items-center gap-1 font-mono">
-                  <MapPin className="w-3 h-3 text-brand" /> {proj.location}
-                </div>
 
                 <div className="absolute bottom-4 left-4 bg-canvas/90 backdrop-blur-md border border-line text-brand text-[9px] font-mono uppercase px-2 py-0.5 rounded">
                   {proj.propertyType}

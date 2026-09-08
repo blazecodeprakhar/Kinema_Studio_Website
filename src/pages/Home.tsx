@@ -234,10 +234,6 @@ export const Home: React.FC = () => {
                   alt={proj.title} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                
-                <div className="absolute top-3 left-3 bg-surface/90 backdrop-blur-md border border-line text-white text-[9px] uppercase tracking-wider px-2.5 py-0.5 rounded font-mono">
-                  {proj.location}
-                </div>
 
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                   <Link 
